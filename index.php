@@ -67,7 +67,7 @@ try {
                 <td><?= $elem['text'] ?></td>
                 <td>
                     <a href="show.php?id=<?= $elem['id'] ?>" class="btn btn-warning btn-sm m-1">Читать</a>
-                    <a class="btn btn-danger btn-sm m-1">Удалить</a>
+                    <a href="delete.php?id=<?= $elem['id'] ?>" class="btn btn-danger btn-sm m-1">Удалить</a>
                 </td>
             </tr>
             <?php endforeach; ?>
