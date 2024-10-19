@@ -1,19 +1,19 @@
 <?php
 
 $database = 'MySQL-8.2';
+$db_name = "notepadPHP";
 $username = "root";
 $db_password = "";
-$db_name = "notepadPHP";
 
 try {
-    $prepare = "mysql:host=$database;dbname=$username;dbname=$db_password;";
-    $pdo = new PDO($prepare);
-    $sql = "SELECT * FROM $db_name";
+    $dsn = "mysql:host=$database;dbname=$db_name";
+    $pdo = new PDO($dsn, $username, $db_password);
+    $sql = "SELECT * FROM notepad";
     $request = $pdo->query($sql);
-    $result = $pdo->prepare($request);
-    $result->execute();
+    $result = $request->fetchAll(PDO::FETCH_ASSOC);
+
 } catch (PDOException $e) {
-    echo "Ошибка: $e";
+    echo "Ошибка: {$e->getMessage()}";
 }
 
 
@@ -29,7 +29,7 @@ try {
     <title>Главная</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styletyle.css">
+    <link rel="stylesheet" href="./style/style.css">
 
 
 </head>
@@ -44,28 +44,27 @@ try {
         <tr>
             <th>№</th>
             <th>Заголовок</th>
+            <th>Текст</th>
             <th>Действия</th>
         </tr>
         </thead>
         <tbody>
         <tr>
-            <td>1</td>
-            <td>Первая запись</td>
+            <?php
+            $countArray = 0;
+            foreach ($result as $elem): ?>
+            <td><?php
+                echo $countArray += 1;
+                ?>
+            </td>
+            <td><?= $elem['title']   ?></td>
+            <td><?= $elem['text'] ?></td>
             <td>
+                <a href="./read.php" class="btn btn-warning btn-sm m-1">Читать</a>
                 <a class="btn btn-danger btn-sm m-1">Удалить</a>
-                <a class="btn btn-warning btn-sm m-1">Изменить</a>
-                <a class="btn btn-info btn-sm m-1">Читать</a>
             </td>
         </tr>
-        <tr>
-            <td>2</td>
-            <td>Вторая запись</td>
-            <td>
-                <button class="btn btn-danger btn-sm">Удалить</button>
-                <button class="btn btn-warning btn-sm">Изменить</button>
-                <button class="btn btn-info btn-sm">Читать</button>
-            </td>
-        </tr>
+        <?php endforeach; ?>
         </tbody>
     </table>
 </div>
