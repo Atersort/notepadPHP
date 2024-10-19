@@ -16,8 +16,8 @@
 <div class="wrapper">
     <div class="container">
         <h1>Создание заметки</h1>
-        <form action="" method="post">
-            <div><input type="text" name="title" value="<?= $_POST['title'] ?? '' ?>"></div>
+        <form action="./store.php" method="post">
+            <div class=><input type="text" name="title" value="<?= $_POST['title'] ?? '' ?>"></div>
             <div>
                 <textarea class="my-2" name="text" id="" cols="70" rows="10"><?= $_POST['text'] ?? '' ?></textarea>
             </div>

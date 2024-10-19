@@ -37,7 +37,7 @@ if (empty($_GET['id'])) {
 </head>
 <body>
 <div class="wrapper">
-    <h1><?= $result['title']?></h1>
+    <h1 class=""><?= $result['title']?></h1>
     <div>
         <a href="/" class="btn btn-primary">Главная</a>
         <a href="/update.php<?=$id?>" class="btn btn-success">Изменить</a>
