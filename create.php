@@ -1,7 +1,3 @@
-<?php
-
-?>
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -21,9 +17,9 @@
     <div class="container">
         <h1>Создание заметки</h1>
         <form action="" method="post">
-            <div><input type="text" name="title" value="<?= '' ?? $_POST['title'] ?>"></div>
+            <div><input type="text" name="title" value="<?= $_POST['title'] ?? '' ?>"></div>
             <div>
-                <textarea class="my-2" name="" id="" cols="70" rows="10"></textarea>
+                <textarea class="my-2" name="text" id="" cols="70" rows="10"><?= $_POST['text'] ?? '' ?></textarea>
             </div>
             <button class="btn btn-success" type="submit">Сохранить</button>
         </form>
