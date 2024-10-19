@@ -7,11 +7,11 @@
 
 .table thead th:nth-child(2),
 .table tbody td:nth-child(2) {
-    width: 40%;
+    width: 20%;
 }
 .table thead th:nth-child(3),
 .table tbody td:nth-child(3) {
-    width: 40%;
+    width: 60%;
 }
 
 .table thead th:nth-child(1),

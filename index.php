@@ -39,6 +39,8 @@ try {
     <header>
 
     </header>
+    <h1>Заметки</h1>
+    <a class="btn btn-success" href="./create.php">Новая заметка</a>
 
     <div class="container mt-5">
         <table class="table table-bordered table-hover">
