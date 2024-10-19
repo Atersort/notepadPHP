@@ -1,3 +1,10 @@
+.wrapper {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+
 .table thead th:nth-child(2),
 .table tbody td:nth-child(2) {
     width: 40%;

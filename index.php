@@ -35,41 +35,44 @@ try {
 
 </head>
 <body>
-<header>
+<div class="wrapper">
+    <header>
 
-</header>
+    </header>
 
-<div class="container mt-5">
-    <table class="table table-bordered table-hover">
-        <thead class="table-dark">
-        <tr>
-            <th>№</th>
-            <th>Заголовок</th>
-            <th>Текст</th>
-            <th>Действия</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <?php
-            $countArray = 0;
-            foreach ($result as $elem): ?>
-            <td><?php
-                echo $countArray += 1;
-                ?>
-            </td>
-            <td><?= $elem['title']   ?></td>
-            <td><?= $elem['text'] ?></td>
-            <td>
-                <a href="./read.php" class="btn btn-warning btn-sm m-1">Читать</a>
-                <a class="btn btn-danger btn-sm m-1">Удалить</a>
-            </td>
-        </tr>
-        <?php endforeach; ?>
-        </tbody>
-    </table>
+    <div class="container mt-5">
+        <table class="table table-bordered table-hover">
+            <thead class="table-dark">
+            <tr>
+                <th>№</th>
+                <th>Заголовок</th>
+                <th>Текст</th>
+                <th>Действия</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <?php
+                $countArray = 0;
+                foreach ($result
+
+                as $elem): ?>
+                <td><?php
+                    echo $countArray += 1;
+                    ?>
+                </td>
+                <td><?= $elem['title'] ?></td>
+                <td><?= $elem['text'] ?></td>
+                <td>
+                    <a href="show.php?id=<?= $elem['id'] ?>" class="btn btn-warning btn-sm m-1">Читать</a>
+                    <a class="btn btn-danger btn-sm m-1">Удалить</a>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+
 </div>
-
-
 </body>
 </html>
